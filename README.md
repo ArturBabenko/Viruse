@@ -1,6 +1,6 @@
 # Viruse Beta ver 0.2
 
-This program shows you how does Viruse coi-19 spreading. 
+This program shows you how does Viruse coi-19 spreading, death rate. 
 In this version adde interraction with user.
 
 Next planinig updates:
