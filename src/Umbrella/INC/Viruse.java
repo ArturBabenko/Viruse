@@ -7,11 +7,9 @@ public class Viruse {
         int counter, infPercent, tday;
 
         long people = 7772203580L;
-        tinfected = 268065;
+        /*tinfected = 268065;
         tday = 110;
-        //death = 11187;
-
-        infPercent = (int) (tinfected / tday);
+        death = 11187; */
 
         Scanner in = new Scanner(System.in);
 
@@ -30,6 +28,8 @@ public class Viruse {
         }
         tinfected = intinfected;
 
+        infPercent = (int) (tinfected / tday);
+
         System.out.println("Write a number of death today: ");
         int indeath = in.nextInt();
         if (indeath <= 0) {
@@ -45,18 +45,30 @@ public class Viruse {
         System.out.println("Infected rate per day from the beginning: " + infPercent + " people");
         System.out.println("Death rate is: " + deathPercent + " %");
 
-        System.out.println("Write a day number to see statistics: ");
-        int dstat = in.nextInt();
+        System.out.println("IF YOU WANT TO SEE STATISTIC PER SELECTED DAY TYPE '1' KEY OR '0' TO EXIT  ");
+        byte S = in.nextByte();
 
-        counter = 1;
-        for (infected = 1; infected <= people; infected = infected + infPercent){
-            death = (infected * deathPercent) / 100;
-            tinfected = dstat * infPercent;
-            if (dstat == counter) {
-                System.out.println("Day " + counter + " infected people " + tinfected + " and death people " + death);
+        if (S == 1) {
+
+            System.out.println("Write a day number to see statistics: ");
+            int dstat = in.nextInt();
+
+
+            counter = 1;
+            for (infected = 1; infected <= people; infected = infected + infPercent) {
+                death = (infected * deathPercent) / 100;
+                tinfected = dstat * infPercent;
+                long perpeople = ( (long) tinfected * 100) / people;
+                if (dstat == counter) {
+                    System.out.println("Day " + counter + " infected people " + tinfected + " " +
+                            " this is " + perpeople + " % of all people " + "and death people " + death);
+                }
+
+                counter++;
             }
-
-            counter++;
+        }
+        else {
+            System.out.println("DON'T PANIC!");
         }
 
     }
