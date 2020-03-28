@@ -2,7 +2,8 @@ package Umbrella.INC;
 import java.util.Scanner;
 
 public class Viruse {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+            throws java.io.IOException  {
         long infected, death, tinfected, deathPercent;
         int counter, infPercent, tday;
 
@@ -40,19 +41,20 @@ public class Viruse {
 
         deathPercent = (death * 100) / tinfected;
 
-        System.out.println("Today is " + tday + " day from first case");
-        System.out.println("Todays infected: " + tinfected + " people");
-        System.out.println("Infected rate per day from the beginning: " + infPercent + " people");
+        System.out.printf("Today is %d day from first case \n", tday ); //just show that i knew about printf
+        System.out.printf("Today infected: %d people \n", tinfected); // but i don't see for now that printf better than sout + tab
+        System.out.printf("Infected rate per day from the beginning: %d people \n", infPercent);
         System.out.println("Death rate is: " + deathPercent + " %");
+        System.out.println("   ");
+        System.out.println("IF YOU WANT TO SEE STATISTIC PER SELECTED DAY TYPE 's' KEY OR 'ANY' TO EXIT  ");
 
-        System.out.println("IF YOU WANT TO SEE STATISTIC PER SELECTED DAY TYPE '1' KEY OR '0' TO EXIT  ");
-        byte S = in.nextByte();
+        char letter;
+        letter = (char) System.in.read(); //another input method but it's use only 1 sign from buffering
 
-        if (S == 1) {
+        if (letter == 's') {
 
             System.out.println("Write a day number to see statistics: ");
             int dstat = in.nextInt();
-
 
             counter = 1;
             for (infected = 1; infected <= people; infected = infected + infPercent) {
@@ -63,12 +65,16 @@ public class Viruse {
                     System.out.println("Day " + counter + " infected people " + tinfected + " " +
                             " this is " + perpeople + " % of all people " + "and death people " + death);
                 }
+               // if (infected == people) {
+               //     System.out.println("All people will be infected in " + counter + " days!");
+               // }
 
                 counter++;
             }
         }
         else {
             System.out.println("DON'T PANIC!");
+
         }
 
     }
